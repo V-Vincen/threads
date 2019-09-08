@@ -1,5 +1,16 @@
 package com.example;
 
+ /**
+  * @ProjectName:
+  * @Package:        com.example
+  * @ClassName:      ThreadDemo
+  * @Description:
+  *                  创建线程的方式一：继承 Thread 类
+  *
+  * @Author:         Mr.Vincent
+  * @CreateDate:     2019/9/8 18:13
+  * @Version:        1.0.0
+  */
 public class ThreadDemo {
     public static void main(String[] args) {
         MyThread thread = new MyThread();
