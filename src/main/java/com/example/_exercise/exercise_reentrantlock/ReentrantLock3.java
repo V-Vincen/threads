@@ -5,11 +5,13 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * reentrantlock 用于替代 synchronized，本例中由于 m1 锁定 this，只有 m1 执行完毕的时候，m2 才能执行，
- * 这里是复习 synchronized 最原始的语义。
+ * ReentrantLock 用于替代 Synchronized，本例中由于 m1 锁定 this，只有 m1 执行完毕的时候，m2 才能执行，
+ * 这里是复习 Synchronized 最原始的语义。
  * <p>
- * 使用 reentrantlock 可以完成同样的功能
+ * 使用 ReentrantLock 可以完成同样的功能
  * 需要注意的是，必须要手动释放锁，使用 syn 锁定的话如果遇到异常，JVM 会自动释放锁，但是 lock 必须手动释放锁，因此经常在 finally 中进行锁的释放。
+ *
+ * 使用 ReentrantLock 可以进行“尝试锁定” tryLock，这样无法锁定，或者在指定时间内无法锁定，线程可以决定是否继续等待。
  */
 public class ReentrantLock3 {
     Lock lock = new ReentrantLock();
@@ -27,7 +29,6 @@ public class ReentrantLock3 {
         } finally {
             lock.unlock();
         }
-
     }
 
     /**
@@ -35,20 +36,20 @@ public class ReentrantLock3 {
      * 也可以指定 tryLock 的时间，由于 tryLock(time) 抛出异常，所以要注意 unlock 的处理，必须放在 finally 中。
      */
     void m2() {
-        boolean locked = lock.tryLock();
-        System.out.println("m2..." + locked);
-        if (locked) lock.unlock();
+//        boolean locked = lock.tryLock();
+//        System.out.println("m2..." + locked);
+//        if (locked) lock.unlock();
 
-//        boolean locked = false;
-//
-//        try {
-//            lock.tryLock(5, TimeUnit.SECONDS);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if (locked) lock.unlock();
-//        }
+        boolean locked = false;
 
+        try {
+            lock.tryLock(5, TimeUnit.SECONDS);
+            System.out.println("m2..." + locked);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            if (locked) lock.unlock();
+        }
     }
 
     public static void main(String[] args) {

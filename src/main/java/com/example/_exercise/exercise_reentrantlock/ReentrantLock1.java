@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * reentrantlock 用于替代 synchronized，本例中由于 m1 锁定 this，只有 m1 执行完毕的时候，m2 才能执行，
- * 这里是复习 synchronized 最原始的语义。
+ * ReentrantLock 用于替代 Synchronized，本例中由于 m1 锁定 this，只有 m1 执行完毕的时候，m2 才能执行，
+ * 这里是复习 Synchronized 最原始的语义。
  */
 public class ReentrantLock1 {
 

@@ -20,13 +20,13 @@ import java.util.concurrent.TimeUnit;
  * 可以读到输出结果并不是 size=5 时 t2 退出，而是 t1 结束时 t2 才接收到通知而退出。
  * 想想这是为什么？
  * <p>
- * notiy 之后，t1 必须释放锁，t2 退出后，也必须 notify，通知 t1 继续执行，
+ * notify 之后，t1 必须释放锁，t2 退出后，也必须 notify，通知 t1 继续执行，
  * 整个通信过程比较繁琐。
  * <p>
  * 使用 Latch（门闩）替代 wait notify 来进行通知：
- * 好处是通信方式简单，同时也可以指定等待时间，使用 await 和 countdown 方法替代 wait 和 notify；
+ * 好处是通信方式简单，同时也可以指定等待时间，使用 await 和 countDown 方法替代 wait 和 notify；
  * CountDownLatch 不涉及锁定，当 count 的值为零时当前线程继续运行，当不涉及同步，只是涉及线程通信的时候，用 synchronized + wait/notify 就显得太重了，
- * 这时应该考虑 countdownlatch/cyclicbarrier/semapjore
+ * 这时应该考虑 CountDownLatch/cyclicbarrier/semapjore
  */
 public class MyContainer5 {
 
