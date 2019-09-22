@@ -32,5 +32,7 @@ Colletions.sychronizedXXX
         ArrayBlockingQueue：是一个底层用数组（准确的说是一个循环数组（可以类比一个圆环），所有的下标在到达最大长度时自动从0继续开始。）实现的有界阻塞队列，有界是指他的容量大小是固定的，不能扩充容量，在初始化时就必须确定队列大小。它通过可重入的独占锁 ReentrantLock 来控制并发，Condition 来实现阻塞。
         LinkedBlockingQueue：是一个底层用单向链表实现的可以是有界的也可以是无界的（Integer.MAX_VALUE）阻塞队列，采用 ReentrantLock 来控制并发，添加采用的是 putLock，移除采用的则是 takeLock，使用两个独占锁来控制消费和生产。
         DelayQueue：是一个支持延时获取元素的无界阻塞队列，队列使用PriorityQueue来实现。队列中的元素必须实现 Delayed 接口，在创建元素时可以指定多久才能从队列中获取当前元素，只有在延迟期满时才能从队列中提取元素。
+        LinkedTransferQueue：是一个底层由链表实现的无界阻塞队列。和 SynchronousQueue 类似，采用了大量的 CAS 操作，没有使用锁，由于是无界的，所以 put 生产线程不会阻塞，只会在 take 时阻塞消费线程，消费线程挂起时同样使用 LockSupport.park 方法。
+        SynchronousQueue：是一个不存储元素的阻塞队列。每一个 put 操作必须等待一个 take 操作，否则不能继续添加元素。非常适合于传递性场景,同时其吞吐量高于 LinkedBlockingQueue 和 ArrayBlockingQueue。
 
     ConcurrentLinkedDeque：线程安全的双端无界阻塞队列，底层采用双向链表，支持 FIFO 和 FILO。
