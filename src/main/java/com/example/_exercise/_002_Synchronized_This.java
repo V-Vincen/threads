@@ -11,5 +11,4 @@ public class _002_Synchronized_This {
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }
     }
-
 }

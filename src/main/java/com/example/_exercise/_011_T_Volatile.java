@@ -14,12 +14,11 @@ import java.util.concurrent.TimeUnit;
  * 使用 volatile，将会强制所有线程都去堆内存中读取 running 的值。
  * volatile 并不能保证多个线程共同修改 running 变量时所带来的不一致问题，也就是 volatile 不能替代 synchronized。
  * 也就是说 volatile 只能保证线程数据之间的可见性，但并不能保证线程之间的原子性。
- *
  */
 public class _011_T_Volatile {
 
     //用 static 修饰也可以达到数据共享的效果，但是这时候需要下面的 while 方法内的程序，主动去调用 running，否则正在运行的线程不会主动去更新修改后的 running 全局类变量。
-    volatile boolean running = true;//对比一下有无 volatile 的情况下，正个程序运行结果的区别
+    volatile boolean running = true;//对比一下有无 volatile 的情况下，整个程序运行结果的区别
 
     void m() {
         System.out.println("m start");
@@ -41,7 +40,6 @@ public class _011_T_Volatile {
         }
 
         tVolatile.running = false;
-
     }
 }
 

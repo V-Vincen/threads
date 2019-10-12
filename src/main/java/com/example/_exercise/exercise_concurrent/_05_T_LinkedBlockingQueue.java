@@ -32,7 +32,7 @@ public class _05_T_LinkedBlockingQueue {
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 try {
-                    //
+                    //put()：首选，队满时阻塞。
                     lBQ.put("a" + i);
                     TimeUnit.MILLISECONDS.sleep(r.nextInt(1000));
                 } catch (InterruptedException e) {

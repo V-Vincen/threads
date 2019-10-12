@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class _04_T_ConcurrentQueue {
     public static void main(String[] args) {
-        //ConcurrentLinkedQueue 线程安全的无界队列，底层采用单链表，支持FIFO。
+        //ConcurrentLinkedQueue 线程安全的无界队列，底层采用单链表，支持 FIFO。
         Queue<String> lQ = new ConcurrentLinkedQueue<>();
 
         for (int i = 0; i < 10; i++) {

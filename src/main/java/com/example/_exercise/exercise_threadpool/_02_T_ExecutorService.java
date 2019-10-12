@@ -8,7 +8,6 @@ package com.example._exercise.exercise_threadpool;
  *      <T> Future<T> submit(Callable<T> task)：执行任务，有返回值，一般有来执行 Callable
  *      void shutdown()：关闭连接池
  *      ...
- *
  */
 public class _02_T_ExecutorService {
 }

@@ -3,9 +3,11 @@ package com.example._exercise;
 
 import java.util.concurrent.TimeUnit;
 
-//对业务写方法加载
-//对业务读方法不加锁
-//容易产生脏读问题（dirtyRead）
+/**
+ * 对业务写方法加锁
+ * 对业务读方法不加锁
+ * 容易产生脏读问题（dirtyRead）
+ */
 public class _007_T_Account {
     String name;
     double balance;
@@ -22,6 +24,7 @@ public class _007_T_Account {
         this.balance = balance;
     }
 
+    //如果对业务读方法不加锁，很容易产生脏读问题（dirtyRead）
     public synchronized double getBalance(String name) {
         return this.balance;
     }

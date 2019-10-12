@@ -53,7 +53,6 @@ public class _012_T_VolatileAndSyn {
 //        });
 
         System.out.println(tVolatileAndSyn.count);
-
     }
 }
 

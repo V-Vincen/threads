@@ -9,5 +9,4 @@ public class _003_Synchronized_M {
         count--;
         System.out.println(Thread.currentThread().getName() + " count = " + count);
     }
-
 }
