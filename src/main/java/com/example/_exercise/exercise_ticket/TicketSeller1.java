@@ -27,6 +27,4 @@ public class TicketSeller1 {
             }).start();
         }
     }
-
-
 }

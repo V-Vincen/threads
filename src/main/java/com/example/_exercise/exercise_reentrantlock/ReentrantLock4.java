@@ -16,7 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * 使用 ReentrantLock 还可以调用 lockInterruptibly 方法，可以对线程 interrupt 方法做出响应，在一个线程等待锁的过程中，可以被打断。
  */
 public class ReentrantLock4 {
-
+    /**
+     * 线程1现在持有 lock 这把锁，在线程1启动后，其无限睡死了；
+     * 这时线程2启动了，同时线程2，也去申请 lock 这把锁，但是由于线程1，在无限制的持有 lock 这把锁，所以线程2拿不到 lock 这把锁，只能进行等待；
+     * 如果想要打断正在等待中的线程2，这时我们就要用 t2.interrupt() 方法来打断线程2，
+     * 而 lock.lockInterruptibly() 方法可以对 t2.interrupt() 方法做出响应，并且捕获 InterruptedException 异常。
+     */
     public static void main(String[] args) {
         Lock lock = new ReentrantLock();
 
@@ -27,7 +32,7 @@ public class ReentrantLock4 {
                 lock.lock();//synchronized(this)
                 System.out.println("t1 start");
 
-                TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+                TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);//睡死了
 
                 System.out.println("t1 end");
             } catch (InterruptedException e) {

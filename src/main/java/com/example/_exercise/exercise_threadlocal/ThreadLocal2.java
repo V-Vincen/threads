@@ -10,8 +10,15 @@ import java.util.concurrent.TimeUnit;
  * 比如在 hibernate 中 session 就存在于 ThreadLocal 中，避免 synchronized 的使用。
  */
 public class ThreadLocal2 {
-
-    static ThreadLocal<Person> tl = new ThreadLocal<>();
+    /**
+     * ThreadLocal：线程局部变量
+     * 下面程序运行结果为：
+     *      t2:zhangsan
+     *      t1:null
+     * 因为线程t2中 tL.set(new Person())，而线程t1并没有；
+     * 所以 ThreadLocal 是线程局部变量，线程t2需要用就自己 set，线程t1是共享不了的。
+     */
+    static ThreadLocal<Person> tL = new ThreadLocal<>();
 
     public static void main(String[] args) {
         new Thread(() -> {
@@ -20,7 +27,7 @@ public class ThreadLocal2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + ":" + tl.get());
+            System.out.println(Thread.currentThread().getName() + ":" + tL.get());
         }, "t1").start();
 
         new Thread(() -> {
@@ -29,8 +36,8 @@ public class ThreadLocal2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            tl.set(new Person());
-            System.out.println(Thread.currentThread().getName() + ":" + tl.get().name);
+            tL.set(new Person());
+            System.out.println(Thread.currentThread().getName() + ":" + tL.get().name);
         }, "t2").start();
     }
 

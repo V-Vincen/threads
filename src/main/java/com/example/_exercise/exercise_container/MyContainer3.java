@@ -77,9 +77,6 @@ public class MyContainer3 {
                     }
                 }
             }
-
         }, "t1").start();
-
     }
-
 }

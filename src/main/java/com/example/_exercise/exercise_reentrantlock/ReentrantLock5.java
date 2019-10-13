@@ -19,7 +19,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentrantLock5 extends Thread {
 
-    public static ReentrantLock lock = new ReentrantLock(true);
+    public static ReentrantLock lock = new ReentrantLock(true);//加上参数 true 为公平锁
 
     @Override
     public void run() {

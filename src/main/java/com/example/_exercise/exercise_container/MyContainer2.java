@@ -50,7 +50,5 @@ public class MyContainer2 {
             }
             System.out.println("t2 结束");
         }, "t2").start();
-
     }
-
 }

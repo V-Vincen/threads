@@ -39,6 +39,4 @@ public class TicketSeller3 {
             }).start();
         }
     }
-
-
 }

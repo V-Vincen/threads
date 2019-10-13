@@ -9,7 +9,6 @@ import java.util.function.Consumer;
  * （更多相关可阅读：https://wvincen.gitee.io/2019/08/05/Java-%E6%9D%82%E8%AE%B0-GoF-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/）
  *
  * 更好的采用下面的方式：既不用加锁，也能实现懒加载
- *
  */
 public class Singleton {
     private Singleton(){

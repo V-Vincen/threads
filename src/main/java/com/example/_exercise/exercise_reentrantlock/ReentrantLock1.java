@@ -37,5 +37,4 @@ public class ReentrantLock1 {
 
         new Thread(rL::m2).start();
     }
-
 }

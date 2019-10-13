@@ -15,7 +15,6 @@ public class MyContainer1<T> {
     final private int MAX = 10;
     private int count = 0;
 
-
     public synchronized void put(T t) {
         while (lists.size() == MAX) {
             try {
