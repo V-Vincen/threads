@@ -8,7 +8,7 @@ import java.util.List;
  * <p>
  * 分析下面的程序可能会产生那些问题？
  * 重复销售？超量销售？
- *
+ * <p>
  * ArrayList 是线程不安全的，其各个方法也不是同步的。所以可能会出现，重复销售和超量销售的问题！！！
  */
 public class TicketSeller1 {

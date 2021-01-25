@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * 分析下面的程序可能会产生那些问题？
  * 重复销售？超量销售？
- *
+ * <p>
  * 虽然说 Vector 是线程安全的，但是 while 中的操作不是原子操作，最后一张片极有可能会被多个线程同时抢占，
  * 所以下面的程序会出现 ArrayIndexOutOfBoundsException 的问题。
  */

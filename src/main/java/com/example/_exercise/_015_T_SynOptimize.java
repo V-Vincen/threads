@@ -8,7 +8,7 @@ public class _015_T_SynOptimize {
 
     int count = 0;
 
-    synchronized void m1(){
+    synchronized void m1() {
         //do sth need not sync
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -27,7 +27,7 @@ public class _015_T_SynOptimize {
         }
     }
 
-    void m2(){
+    void m2() {
         //do sth need not sync
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -37,7 +37,7 @@ public class _015_T_SynOptimize {
 
         //业务逻辑中只有下面这句话需要 sync，这时不应该给整个方法上锁
         //采用细颗粒的锁，可以使线程争用时间变短，从而提高效率
-        synchronized (this){
+        synchronized (this) {
             count++;
         }
 

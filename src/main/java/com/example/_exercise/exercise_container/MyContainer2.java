@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * 曾经的面试题：
  * 实现一个容器，提供两个方法，add，size。
  * 写两个线程，线程1添加10个元素到容器中，线程2实现监控元素的个数，当个数到5个时，线程2给出提示并结束。
- *
+ * <p>
  * 给 lists 添加 volatile 之后，t2 能够接到通知，但是，t2线程的死循环很浪费 cpu，如果不用死循环，改怎么做呢？
  */
 public class MyContainer2 {

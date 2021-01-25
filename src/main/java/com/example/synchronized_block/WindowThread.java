@@ -1,22 +1,19 @@
 package com.example.synchronized_block;
 
 
- /**
-  * @ProjectName:
-  * @Package:        com.example.ticktest
-  * @ClassName:      WindowThread
-  * @Description:
-  *                  需求：创建三个窗口卖票，总票数为100张，使用继承 Thread 类的方式。
-  *
-  *                  使用同步代码块：解决继承 Thread 类的方式的线程安全问题
-  *
-  *                  说明：在继承 Thread 类创建多线程的方式中，慎用 this 充当同步监视器，考虑使用当前类充当同步监视器。
-  *
-  *
-  * @Author:         Mr.Vincent
-  * @CreateDate:     2019/9/6 1:06
-  * @Version:        1.0.0
-  */
+/**
+ * @ProjectName:
+ * @Package: com.example.ticktest
+ * @ClassName: WindowThread
+ * @Description: 需求：创建三个窗口卖票，总票数为100张，使用继承 Thread 类的方式。
+ * <p>
+ * 使用同步代码块：解决继承 Thread 类的方式的线程安全问题
+ * <p>
+ * 说明：在继承 Thread 类创建多线程的方式中，慎用 this 充当同步监视器，考虑使用当前类充当同步监视器。
+ * @Author: Mr.Vincent
+ * @CreateDate: 2019/9/6 1:06
+ * @Version: 1.0.0
+ */
 public class WindowThread {
     public static void main(String[] args) {
         WindowT t1 = new WindowT();
@@ -40,7 +37,7 @@ class WindowT extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized(obj) {
+            synchronized (obj) {
 
                 /**
                  * 或者使用 WindowT.class：这里的 WindowT.class 也是个对象，相当于 Class clazz = WindowT.class，类是唯一的，在 JVM 中只会加载一次；

@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * <p>
  * 使用 ReentrantLock 可以完成同样的功能
  * 需要注意的是，必须要手动释放锁，使用 syn 锁定的话如果遇到异常，JVM 会自动释放锁，但是 lock 必须手动释放锁，因此经常在 finally 中进行锁的释放。
- *
+ * <p>
  * 使用 ReentrantLock 可以进行“尝试锁定” tryLock，这样无法锁定，或者在指定时间内无法锁定，线程可以决定是否继续等待。
  */
 public class ReentrantLock3 {

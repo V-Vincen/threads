@@ -4,23 +4,20 @@ package com.example.lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 
- /**
-  * @ProjectName:
-  * @Package:        com.example.lock
-  * @ClassName:      LockTest
-  * @Description:
-  *                  使用 lock 锁：解决线程安全问题（JDK 5.0新增）
-  *
-  *                  面试题：synchronized 与 lock 的异同？
-  *                  相同点：二者都是可以解决线程安全问题
-  *                  不同点：synchronized 机制在执行完相应的同步代码以后，自动的释放同步监视器；
-  *                         Lock 需要手动的启动同步（lock()）,同时结束同步也需要手动的实现（unlock()）。
-  *
-  *
-  * @Author:         Mr.Vincent
-  * @CreateDate:     2019/9/6 18:02
-  * @Version:        1.0.0
-  */
+/**
+ * @ProjectName:
+ * @Package: com.example.lock
+ * @ClassName: LockTest
+ * @Description: 使用 lock 锁：解决线程安全问题（JDK 5.0新增）
+ * <p>
+ * 面试题：synchronized 与 lock 的异同？
+ * 相同点：二者都是可以解决线程安全问题
+ * 不同点：synchronized 机制在执行完相应的同步代码以后，自动的释放同步监视器；
+ * Lock 需要手动的启动同步（lock()）,同时结束同步也需要手动的实现（unlock()）。
+ * @Author: Mr.Vincent
+ * @CreateDate: 2019/9/6 18:02
+ * @Version: 1.0.0
+ */
 public class LockTest {
     public static void main(String[] args) {
         Window w = new Window();

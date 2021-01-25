@@ -4,18 +4,14 @@ package com.example;
 import java.util.concurrent.*;
 
 /**
-  * @ProjectName:
-  * @Package:        com.example
-  * @ClassName:      ThreadPool
-  * @Description:
-  *                   创建线程的方式四：使用线程池 --> JDK 5.0 新增
-  *
-  *
-  *
-  * @Author:         Mr.Vincent
-  * @CreateDate:     2019/9/9 10:38
-  * @Version:        1.0.0
-  */
+ * @ProjectName:
+ * @Package: com.example
+ * @ClassName: ThreadPool
+ * @Description: 创建线程的方式四：使用线程池 --> JDK 5.0 新增
+ * @Author: Mr.Vincent
+ * @CreateDate: 2019/9/9 10:38
+ * @Version: 1.0.0
+ */
 public class ThreadPool {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);

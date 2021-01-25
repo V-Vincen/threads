@@ -13,8 +13,8 @@ public class ThreadLocal2 {
     /**
      * ThreadLocal：线程局部变量
      * 下面程序运行结果为：
-     *      t2:zhangsan
-     *      t1:null
+     * t2:zhangsan
+     * t1:null
      * 因为线程t2中 tL.set(new Person())，而线程t1并没有；
      * 所以 ThreadLocal 是线程局部变量，线程t2需要用就自己 set，线程t1是共享不了的。
      */

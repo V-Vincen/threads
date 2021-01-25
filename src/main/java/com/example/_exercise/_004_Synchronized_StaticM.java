@@ -10,8 +10,8 @@ public class _004_Synchronized_StaticM {
         System.out.println(Thread.currentThread().getName() + " count = " + count);
     }
 
-    public static void mm(){
-        synchronized (_004_Synchronized_StaticM.class){
+    public static void mm() {
+        synchronized (_004_Synchronized_StaticM.class) {
             count--;
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }

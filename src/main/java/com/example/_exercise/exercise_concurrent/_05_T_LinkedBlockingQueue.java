@@ -8,18 +8,18 @@ import java.util.concurrent.TimeUnit;
 /**
  * 下面的程序是 Java 提供的生产者、消费者模式的阻塞式的一种实现。
  * LinkedBlockingQueue：是一个底层用单向链表实现，可以是有界的也可以是无界的（Integer.MAX_VALUE）阻塞队列，
- *                     采用 ReentrantLock 来控制并发，添加采用的是 putLock，移除采用的则是 takeLock，使用两个独占锁来控制消费和生产。
+ * 采用 ReentrantLock 来控制并发，添加采用的是 putLock，移除采用的则是 takeLock，使用两个独占锁来控制消费和生产。
  * 其主要的方法为：
  * 1.取数据：
- *      take()：首选，当队列为空时阻塞。
- *      poll()：弹出队顶元素，队列为空时，返回空。
- *      peek()：和 poll 类似，返回队顶元素，但顶元素不弹出。队列为空时返回 null。
- *      remove(Object o)：移除某个元素，队列为空时抛出异常。成功移除返回 true。
+ * take()：首选，当队列为空时阻塞。
+ * poll()：弹出队顶元素，队列为空时，返回空。
+ * peek()：和 poll 类似，返回队顶元素，但顶元素不弹出。队列为空时返回 null。
+ * remove(Object o)：移除某个元素，队列为空时抛出异常。成功移除返回 true。
  * 2.添加数据：
- *      put()：首选，队满时阻塞。
- *      add()：插入元素到队尾，插入成功返回 true，没有可用空间抛出异常 IllegalStateException。
- *      offer()：队满时返回 false。（插入元素到队尾，插入成功返回 true，否则返回 false。）
- *
+ * put()：首选，队满时阻塞。
+ * add()：插入元素到队尾，插入成功返回 true，没有可用空间抛出异常 IllegalStateException。
+ * offer()：队满时返回 false。（插入元素到队尾，插入成功返回 true，否则返回 false。）
+ * <p>
  * 3.判断队列是否为空：size() 方法会遍历整个队列，时间复杂度为 O(n)，所以最好选用 isEmtpy()。
  */
 public class _05_T_LinkedBlockingQueue {

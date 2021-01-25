@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
  * volatile 关键词，是一个变量在多线程间可见，
  * A B 线程都用到一个变量，java 默认是线程中保留一份 copy，这样如果 B 线程改了该变量，则 A 线程未必知道，
  * 使用 volatile 关键字，会让所有线程都会读到变量的修改值。
- *
+ * <p>
  * 在下面的代码中，running 是存在于堆内存的 t 对象中，
  * 当线程 t1 开始运行的时候，会把 running 值从内存中读到 t1 线程的工作区，在运行过程中直接使用这个 copy，
  * 并不会每次都去读取堆内存，这样，当主线程修改 running 的值之后，t1 线程感知不到，所以不会停止运行。
- *
+ * <p>
  * 使用 volatile，将会强制所有线程都去堆内存中读取 running 的值。
  * volatile 并不能保证多个线程共同修改 running 变量时所带来的不一致问题，也就是 volatile 不能替代 synchronized。
  * 也就是说 volatile 只能保证线程数据之间的可见性，但并不能保证线程之间的原子性。

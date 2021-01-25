@@ -1,16 +1,14 @@
 package com.example;
 
- /**
-  * @ProjectName:
-  * @Package:        com.example
-  * @ClassName:      ThreadDemo
-  * @Description:
-  *                  创建线程的方式一：继承 Thread 类
-  *
-  * @Author:         Mr.Vincent
-  * @CreateDate:     2019/9/8 18:13
-  * @Version:        1.0.0
-  */
+/**
+ * @ProjectName:
+ * @Package: com.example
+ * @ClassName: ThreadDemo
+ * @Description: 创建线程的方式一：继承 Thread 类
+ * @Author: Mr.Vincent
+ * @CreateDate: 2019/9/8 18:13
+ * @Version: 1.0.0
+ */
 public class ThreadDemo {
     public static void main(String[] args) {
         MyThread thread = new MyThread();
@@ -33,7 +31,7 @@ class MyThread extends Thread {
             if (i % 2 == 0) {
                 System.out.println(Thread.currentThread().getName() + ":" + i);
             }
-            if(i % 4 == 0){
+            if (i % 4 == 0) {
                 yield();
             }
         }
